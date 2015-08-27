@@ -15,7 +15,7 @@ export default {
     entryPoint
   ],
   output: {
-    path: process.env['PUBLISHPATH'] || './assets',
+    path: process.env['PUBLISHPATH'] || config.publishPath,
     filename: 'bundle.js',
     publicPath: `${webpackDevServerAddress}/assets/`
   },
