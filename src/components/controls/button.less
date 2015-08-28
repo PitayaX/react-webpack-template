@@ -1,0 +1,115 @@
+@primaryColor: #4aa3df;
+@hlPrimaryColor: #2980b9;
+@successColor: #2ecc71;
+@hlSuccessColor: #27ae60;
+@warningColor: #f1c40f;
+@hlWariningColor: #f39c12;
+@errorColor: #e74c3c;
+@hlErrorColor: #c0392b;
+
+.btn, .btn-ghost {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 13px;
+  font-size: 12px;
+  font-family: inherit;
+  transition: all .3s;
+  vertical-align: middle;
+  outline: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    color: #ccc;
+    background-color: #f3f5f7;
+    padding: 4px 12px;
+    border: 1px solid #d9d9d9;
+    cursor: not-allowed;
+  }
+
+  &.loading {
+
+  }
+}
+
+// mixin
+.btn-style(@color, @hlColor) {
+  background-color: @color;
+  &:active { background-color: @hlColor; }
+}
+.btn-ghost-style(@color, @hlColor) {
+  color: @color;
+  border: 1px solid @color;
+  padding: 4px 12px;
+
+  &:hover {
+    color: #fff;
+    background-color: @color;
+  }
+  &:active {
+    background-color: @hlColor;
+  }
+  &.loading {
+    color: @color;
+    background-color: #fff;
+    padding-right: 26px;
+    &:hover { cursor: default; }
+  }
+}
+
+.btn.btn-default:not(.disabled) {
+  .btn-style(#fff, #f3f5f7);
+  color: #ccc;
+  padding: 4px 12px;
+  border: 1px solid #d9d9d9;
+}
+.btn.btn-primary:not(.disabled) {
+  .btn-style(@primaryColor, @hlPrimaryColor);
+}
+.btn.btn-success:not(.disabled) {
+  .btn-style(@successColor, @hlSuccessColor);
+}
+.btn.btn-warning:not(.disabled) {
+  .btn-style(@warningColor, @hlWariningColor);
+}
+.btn.btn-error:not(.disabled) {
+  .btn-style(@errorColor, @hlErrorColor);
+}
+
+.btn-ghost.btn-primary:not(.disabled) {
+  .btn-ghost-style(@primaryColor, @hlPrimaryColor);
+}
+.btn-ghost.btn-success:not(.disabled) {
+  .btn-ghost-style(@successColor, @hlSuccessColor);
+}
+.btn-ghost.btn-warning:not(.disabled) {
+  .btn-ghost-style(@warningColor, @hlWariningColor);
+}
+.btn-ghost.btn-error:not(.disabled) {
+  .btn-ghost-style(@errorColor, @hlErrorColor);
+}
+
+.loading .fa-spinner {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  margin-top: -6px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.rotate { animation: rotate 1s linear; }
+.infinite { animation-iteration-count: infinite; }
