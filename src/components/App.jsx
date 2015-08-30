@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import SmartButton from './controls/button'
+import MyButton from './controls/mybutton'
 import './site.less'
 
 const Demo = React.createClass({
@@ -18,6 +19,8 @@ const Demo = React.createClass({
           <SmartButton className='btn-ghost btn-success'>按钮1</SmartButton>
           <SmartButton className='btn-ghost btn-warning'>按钮2</SmartButton>
           <SmartButton className='btn-ghost btn-error' onClick={this._handleAnotherClick}>按钮3</SmartButton>
+
+          <MyButton className='btn-ghost btn-success' loadingClassName="fa fa-spinner rotate infinite loading"> 我的按钮 </MyButton>
         </div>
         <div className='section'>
           <SmartButton className='btn btn-default'>按钮00</SmartButton>
