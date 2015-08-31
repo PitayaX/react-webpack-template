@@ -2,7 +2,7 @@
 
 这是一个react组件开发模板，里面包含了一个button组件的例子，并提供webpack的HMR（Hot Module Replacement）使得代码的更改无需刷新浏
 览器即可看到效果，这里有[一篇介绍React组件的文章](http://segmentfault.com/a/1190000003645189?_ea=326686)。更多的资料，请查看本仓库
-的[wiki](https://github.com/PitayaX/react-webpack-template/wiki)
+的[wiki](https://github.com/PitayaX/react-webpack-template/wiki)。
 
 #### 说明
 
