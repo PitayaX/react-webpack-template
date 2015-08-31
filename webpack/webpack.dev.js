@@ -1,6 +1,6 @@
 import path from 'path'
 import webpack from 'webpack'
-import { entryPoint, jsLoader, autoprefixerLoader } from './basicConfig'
+import { entryPoint, jsLoader, autoprefixerLoader, alias } from './basicConfig'
 import config from '../config'
 
 const webpackDevServerAddress = `http://localhost:${config.webpackDevPort}`
@@ -24,7 +24,8 @@ export default {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: [ '', '.js', '.jsx' ]
+    extensions: [ '', '.js', '.jsx' ],
+    alias
   },
   module: {
     loaders: [

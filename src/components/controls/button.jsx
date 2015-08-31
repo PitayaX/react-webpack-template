@@ -1,6 +1,6 @@
 import React, { PropTypes as T } from 'react'
 import cNames from 'classnames'
-import './button.less'
+import 'less/button.less'
 
 const ShadowButton = React.createClass({
   propTypes: {

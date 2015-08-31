@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import webpack from 'webpack'
 import yargs from 'yargs'
+import config from '../config'
 
 // create babel cache directory
 const babelCache = path.resolve(path.join(__dirname, '../.babel-cache'))
@@ -35,10 +36,12 @@ export const options = yargs
 
 export const externals = {
   'react': 'React',
-  'react/addons': 'React',
-  'react-router': 'ReactRouter',
-  'marked': 'marked',
-  'highlight.js': 'hljs',
-  'reflux': 'Reflux',
-  'moment': 'moment'
+  'react/addons': 'React'
+  // 'react-router': 'ReactRouter',
+  // 'marked': 'marked',
+  // 'highlight.js': 'hljs',
+  // 'reflux': 'Reflux',
+  // 'moment': 'moment'
 }
+
+export const alias = config.aliasPath

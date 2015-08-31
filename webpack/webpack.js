@@ -1,6 +1,6 @@
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import { options, jsLoader, cssLoader, entryPoint, externals } from './baseConfig'
+import { options, jsLoader, cssLoader, entryPoint, externals, alias } from './baseConfig'
 
 export default {
   devtool: 'source-map',
@@ -19,7 +19,8 @@ export default {
     })
   ],
   resolve: {
-    extensions: [ '', '.js', '.jsx' ]
+    extensions: [ '', '.js', '.jsx' ],
+    alias
   },
   module: {
     loaders: [

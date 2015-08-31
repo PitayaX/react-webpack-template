@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import SmartButton from './controls/button'
-import './site.less'
+import 'less/site.less'
 
 const Demo = React.createClass({
   getInitialState () {
