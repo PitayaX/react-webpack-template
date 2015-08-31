@@ -18,3 +18,18 @@
 确保配置项中的`port`的值是一个未被占用的端口，另外`aliasPath`所配置的对象就是`webpack`的`resolve.alias`配置项，大家需要把`less`改成自己环境下的绝对路径，该路径指向`./src/less`这个目录。
 
 确保了配置正确后，在命令行工具中输入`npm start`即可开始开发了！
+
+#### 使用该仓库的正确姿势
+
+大家不要把修改直接push到这个仓库，建议大家可以这样：
+
+- clone本仓库，并修改文件夹名字为你自己喜欢的名字
+- 在Github网站上创建一个新的仓库，并得到该仓库的url
+- 将remote origin修改为新仓库的url
+
+```
+> git clone https://github.com/PitayaX/react-webpack-template.git
+> mv react-webpack-template mycomponent
+> cd mycomponent
+> git remote set-url origin https://github.com/somebody/repo.git
+```
