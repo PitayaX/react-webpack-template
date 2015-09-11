@@ -19,7 +19,7 @@ const Artical = React.createClass({
       <div className="artical" {...others}>
         <div className="artical-left"><a href={uri} className="author" title={title}><image className="artical-img img" src={imgSrc} /></a></div>
         <div className="artical-right">
-          <p><a title="title" className="artical-title" href={uri}>{title}</a></p>
+          <h3><a title="title" className="artical-title" href={uri}>{title}</a></h3>
           <a title="subject" className="artical-subject">{subject}</a>
           <div className="artical-footer">{foot}</div>
        </div>
