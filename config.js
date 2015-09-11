@@ -1,7 +1,7 @@
 export default {
-  webpackDevPort: 3000,
+  webpackDevPort: 8080,
   publishPath: 'D:\\www\\assetsss', // ignore it when developing
   aliasPath: {
-    'less': 'D:\\github\\react-webpack-template\\src\\less' // alias path for less
+    'less': 'C:\\Work\\myFork\\react-webpack-template\\src\\less' // alias path for less
   }
 }
