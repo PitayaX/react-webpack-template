@@ -17,7 +17,7 @@ const Artical = React.createClass({
     const foot = footers && footHandler && footers.map(item => footHandler(item))
     return (
       <div className="artical" {...others}>
-        <div className="artical-left"><a href={uri} className="author" title={title}><image className="artical-img img" src={imgSrc} /></a></div>
+        <div className="artical-left"><a href={uri} className="author" title={title}><image className="artical-photo photo" src={imgSrc} /></a></div>
         <div className="artical-right">
           <h3><a title="title" className="artical-title" href={uri}>{title}</a></h3>
           <a title="subject" className="artical-subject">{subject}</a>
