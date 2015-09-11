@@ -32,7 +32,7 @@ const MyButton = React.createClass({
       if (!this.state.isLoading)
       {
         this.setState({ isLoading: true })
-        setTimeout(() => {
+        setTimeout(() => {e
           this.setState({ isLoading: false })
         }, 3000)
 

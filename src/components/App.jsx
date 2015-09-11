@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
-import SmartButton from './controls/button'
-import MyButton from './controls/mybutton'
+import Articals from './controls/articals'
+import Tags from './controls/tags'
+import SortBar from './controls/sortbar'
+import articalsData from './data/json.js'
 import './site.less'
 
 const Demo = React.createClass({
@@ -10,47 +12,26 @@ const Demo = React.createClass({
     }
   },
   render () {
+    const articalsData = [ { title: "这个是标题哦", url: "http://www.baidu.com",
+      image: "http://reactjs.cn/react/img/logo.svg", subject: "这是摘要哦。。。。。。。。。。。" },
+      { title: "这个是标题哦", url: "http://www.baidu.com", image: "http://reactjs.cn/react/img/logo.svg",
+        subject: "这是摘要哦。。。。。。。。。。。" }, { title: "这个是标题哦", url: "http://www.baidu.com",
+        image: "http://reactjs.cn/react/img/logo.svg", subject: "这是摘要哦。。。。。。。。。。。" } ]
+    const sortData = [ { name: "最近更新", id: 0, actived: true }, { name: "热门排名", id: 1, actived: false }, { name: "关注度排名", id: 2 } ]
+    const tagData = [ { id: 0, name: "最热" }, { id: 1, name: "reactjs" } ]
     return (
       <div className='container'>
         <h2>Demo page</h2>
-        <div className='section'>
-          <SmartButton className='btn-ghost btn-primary' onClick={this._handleClick}
-            state={this.state.buttonState}>{this._getButtonContent()}</SmartButton>
-          <SmartButton className='btn-ghost btn-success'>按钮1</SmartButton>
-          <SmartButton className='btn-ghost btn-warning'>按钮2</SmartButton>
-          <SmartButton className='btn-ghost btn-error' onClick={this._handleAnotherClick}>按钮3</SmartButton>
-
-          <MyButton className='btn-ghost btn-success' loadingClassName="fa fa-spinner rotate infinite loading"> 我的按钮 </MyButton>
-        </div>
-        <div className='section'>
-          <SmartButton className='btn btn-default'>按钮00</SmartButton>
-          <SmartButton className='btn btn-primary'>按钮0</SmartButton>
-          <SmartButton className='btn btn-success'>按钮1</SmartButton>
-          <SmartButton className='btn btn-warning'>按钮2</SmartButton>
-          <SmartButton className='btn btn-error'>按钮3</SmartButton>
-          {/* disabled */}
-          <SmartButton className='btn btn-error' state={-1}>按钮4</SmartButton>
-        </div>
+        <Tags data={tagData}/>
+        <SortBar types={sortData} className="sortBar" onActiveChange={this.onActiveChanged}/>
+        <Articals data={articalsData}/>
       </div>
     )
   },
-  _handleClick () {
-    this.setState({ buttonState: 0 })
-    // delay 3s
-    setTimeout(() => {
-      this.setState({ buttonState: 1 })
-    }, 3000)
-  },
-  _handleAnotherClick () {
-    this.setState({ buttonState: -this.state.buttonState })
-  },
-  _getButtonContent () {
-    if (this.state.buttonState === 0) {
-      return (
-        <span>测试按钮<i className='fa fa-spinner rotate infinite'></i></span>
-      )
-    }
-    else return <span>测试按钮</span>
+
+  onActiveChanged (e, sortData) {
+    // forceUpdate()
+    // this.setState({ activedId: sortData.id })
   }
 })
 
