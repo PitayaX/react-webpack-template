@@ -23,6 +23,7 @@ const Artical = React.createClass({
           <a title="subject" className="artical-subject">{subject}</a>
           <div className="artical-footer">{foot}</div>
        </div>
+       <div className="clear"></div>
       </div>
     )
   }

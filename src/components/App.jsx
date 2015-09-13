@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react'
+import Redux from 'redux'
 import Articals from './controls/articals'
 import Tags from './controls/tags'
 import SortBar from './controls/sortbar'
-import articalsData from './data/json.js'
+import Store from './common/store'
+import { articalsData, sortData, tagData } from './data/json.js'
 import './site.less'
 
 const Demo = React.createClass({
@@ -11,14 +13,13 @@ const Demo = React.createClass({
       buttonState: 1
     }
   },
+  componentDidMount () {
+    Store.getState()
+    Store.subscribe(() =>
+      console.log("redux="+Store.getState())
+    )
+  },
   render () {
-    const articalsData = [ { title: "这个是标题哦", url: "http://www.baidu.com",
-      image: "http://reactjs.cn/react/img/logo.svg", subject: "这是摘要哦。。。。。。。。。。。" },
-      { title: "这个是标题哦", url: "http://www.baidu.com", image: "http://reactjs.cn/react/img/logo.svg",
-        subject: "这是摘要哦。。。。。。。。。。。" }, { title: "这个是标题哦", url: "http://www.baidu.com",
-        image: "http://reactjs.cn/react/img/logo.svg", subject: "这是摘要哦。。。。。。。。。。。" } ]
-    const sortData = [ { name: "最近更新", id: 0, actived: true }, { name: "热门排名", id: 1, actived: false }, { name: "关注度排名", id: 2 } ]
-    const tagData = [ { id: 0, name: "最热" }, { id: 1, name: "reactjs" } ]
     return (
       <div className='container'>
         <h2>Demo page</h2>
@@ -32,6 +33,7 @@ const Demo = React.createClass({
   onActiveChanged (e, sortData) {
     // forceUpdate()
     // this.setState({ activedId: sortData.id })
+    Store.dispatch({ type: 'INCREMENT' })
   }
 })
 

@@ -12,7 +12,6 @@ const Tags = React.createClass({
     return { activeId: null }
   },
   render () {
-    debugger
     const { data, onClick, ...others } = this.props
     const tags = data.map( (item) => {
       return (
