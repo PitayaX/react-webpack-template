@@ -13,7 +13,7 @@ const Articals = React.createClass({
     const footers = [ "阅读 2982 · 评论 65 · 喜欢 92 · 打赏 1", "阅读 2982 · 评论 65 · 喜欢 92 · 打赏 1", "阅读 2982 · 评论 65 · 喜欢 92 · 打赏 1" ]
     const articals = this.props.data && this.props.data.map(artical => {
       return (<Artical uri={artical.url} title={artical.title} imgSrc={artical.image}
-      subject= {artical.subject} footers={footers} footHandler={this.handleFoot}/>)
+      abstract= {artical.abstract} footers={footers} footHandler={this.handleFoot}/>)
     })
 
     return (

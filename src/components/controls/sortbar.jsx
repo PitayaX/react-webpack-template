@@ -18,8 +18,8 @@ const SortBar = React.createClass({
     const  { types, ...others } = this.props
     const sorts = types.map( sort => <span
       className={
-        CNames( "sort", { "actived": this.state.activedId === sort.id },
-        { "unactived": this.state.activedId !== sort.id } )
+        CNames( "sort", { "actived": this.state.activedId === sort._id },
+        { "unactived": this.state.activedId !== sort._id } )
       } /* value={sort.value} */
       onClick={this.clickEvent( sort )}>{sort.name}</span> )
 
@@ -28,7 +28,7 @@ const SortBar = React.createClass({
 
   clickEvent (  sortData ) {
     return (e) => {
-      this.setState({ activedId: sortData.id })
+      this.setState({ activedId: sortData._id })
       this.props.onActiveChange && this.props.onActiveChange(sortData, e)
     }
   }

@@ -16,9 +16,9 @@ const Tags = React.createClass({
     const tags = data.map( (item) => {
       return (
         <a className={
-            CNames("tag-hot", { "active": this.state.activeId === item.id })
+            CNames("tag-hot", { "active": this.state.activeId === item._id })
           }
-          onClick={this.onClickHandler(item)}>{item.name}</a>
+          onClick={this.onClickHandler(item)}>{item.text}</a>
       )
     })
     return ( <div>{tags}</div> )
@@ -26,7 +26,7 @@ const Tags = React.createClass({
 
   onClickHandler (tagData) {
     return (e) => {
-      this.setState({ activeId: tagData.id })
+      this.setState({ activeId: tagData._id })
 
       this.props.onClick && this.props.onClick(tagData, e)
     }
