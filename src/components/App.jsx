@@ -51,9 +51,13 @@ const Demo = React.createClass({
   }
 })
 
+function ShowArtical () {
+  return null
+}
+
 function select (state) {
   debugger
-  return { articals: state.FilterArtical, sorts: sortData, tags: tagData }
+  return { articals: state.FilterArtical, sorts: state.SortArtical, tags: tagData }
 }
 
 export default connect(select)(Demo)

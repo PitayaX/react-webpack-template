@@ -30,7 +30,7 @@ function FilterArtical ( state = articalsData, action ) {
   }
 }
 
-function SortArtical ( state = articalsData, action  ) {
+function SortArtical ( state = sortData, action  ) {
   switch (action.type) {
   case Actions.SET_SORT:
     return state
