@@ -9,8 +9,8 @@ export const Actions = {
   SET_SORT: "Set_Sort"
 }
 
-export function SetSort ( typeName ) {
-  return { type: Actions.SET_SORT, name: typeName }
+export function SetSort ( code ) {
+  return { type: Actions.SET_SORT, code }
 }
 
 export function SetFilter ( id ) {

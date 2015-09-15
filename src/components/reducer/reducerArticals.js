@@ -12,7 +12,6 @@ import { Actions, SortType } from '../action/actionArtical'
 import { articalsData, sortData, tagData } from '../data/json.js'
 
 function FilterArtical ( state = articalsData, action ) {
-  debugger
   switch (action.type) {
   case Actions.SET_FILTER:
     const newState = articalsData.filter( artical => {
@@ -30,10 +29,11 @@ function FilterArtical ( state = articalsData, action ) {
   }
 }
 
-function SortArtical ( state = sortData, action  ) {
+function SortArtical ( state = SortType.SORT_FOLLOW, action  ) {
+  debugger
   switch (action.type) {
   case Actions.SET_SORT:
-    return state
+    return action.code
     break
   default:
     return state

@@ -4,9 +4,11 @@ import { connect } from 'react-redux'
 import Articals from './controls/articals'
 import Tags from './controls/tags'
 import SortBar from './controls/sortbar'
+import HeadBar from './controls/headbar'
+import LeftBar from './controls/leftbar'
 // import Store from './common/store'
 import { articalsData, sortData, tagData } from './data/json.js'
-import { Actions, SetSort, SetFilter } from './action/actionArtical'
+import { Actions, SetSort, SetFilter, SortType } from './action/actionArtical'
 import './site.less'
 
 const Demo = React.createClass({
@@ -21,43 +23,52 @@ const Demo = React.createClass({
       buttonState: 1
     }
   },
-  componentDidMount () {
-    // Store.getState()
-    // Store.subscribe(() =>
-    //   console.log("redux="+Store.getState())
-    // )
+  componentDidMount () {    
+    // something here
   },
   render () {
     const { dispatch, tags, sorts, articals } = this.props
     return (
       <div className='container'>
-        <h2>Demo page</h2>
-        <Tags data={tags} onClick={
-            tag => {
-              return dispatch(SetFilter(tag._id))
-            }
-          }/>
-        <SortBar types={sorts} className="sortBar"/>
-        <Articals data={articals}/>
+        <LeftBar />
+        <div className="main">
+          <div className="leftPanel"></div>
+          <div className="content">
+            <h2>Demo page</h2>
+            <HeadBar />
+            <Tags data={tags} onClick={
+                tag => {
+                  return dispatch(SetFilter(tag._id))
+                }
+              }/>
+            <SortBar types={sortData} className="sortBar" onActiveChange={
+                sort => dispatch(SetSort(sort.code))
+              }/>
+            <Articals data={articals}/>
+          </div>
+        </div>
       </div>
     )
-  },
-
-  onSortActiveChanged (e, sortData) {
-    // forceUpdate()
-    // this.setState({ activedId: sortData._id })
-    // Store.dispatch({ type: 'INCREMENT' })
-    // dispatch(SetSort())
   }
 })
 
-function ShowArtical () {
-  return null
+function ShowArtical (articals, sort) {
+  switch (sort) {
+  case SortType.SORT_FOLLOW:
+    return articals.sort((a, b) => a._id - b._id)
+    break
+  case SortType.SORT_HOT:
+    return articals.sort((a, b) => b.viewCount - a.viewCount)
+  case SortType.SORT_NEW:
+    return articals.sort((a, b) => b.publishedOn = a.publishedOn)
+  default:
+    return articals
+  }
 }
 
 function select (state) {
   debugger
-  return { articals: state.FilterArtical, sorts: state.SortArtical, tags: tagData }
+  return { articals: ShowArtical(state.FilterArtical, state.SortArtical), sorts: state.SortArtical, tags: tagData }
 }
 
 export default connect(select)(Demo)
