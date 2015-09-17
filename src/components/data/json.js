@@ -35,3 +35,8 @@ export const sortData = [
 ]
 
 export const tagData = [ { _id: 0, text: "最热" }, { _id: 1, text: "reactjs" }, { _id: 2, text: "reactjs" }, { _id: 3, text: "reactjs" } ]
+
+export const hotPosts = [ 
+  {  _id: 1, title: "这个是标题1哦", url: "http://www.baidu.com" },
+  {  _id: 2, title: "这个是标题2哦", url: "http://www.baidu.com" },
+  {  _id: 3, title: "这个是标题3哦", url: "http://www.baidu.com" } ]

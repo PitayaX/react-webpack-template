@@ -6,8 +6,9 @@ import Tags from './controls/tags'
 import SortBar from './controls/sortbar'
 import HeadBar from './controls/headbar'
 import LeftBar from './controls/leftbar'
+import HotPanel from './controls/hotpanel'
 // import Store from './common/store'
-import { articalsData, sortData, tagData } from './data/json.js'
+import { articalsData, sortData, tagData, hotPosts } from './data/json.js'
 import { Actions, SetSort, SetFilter, SortType } from './action/actionArtical'
 import './site.less'
 
@@ -23,7 +24,7 @@ const Demo = React.createClass({
       buttonState: 1
     }
   },
-  componentDidMount () {    
+  componentDidMount () {
     // something here
   },
   render () {
@@ -32,7 +33,12 @@ const Demo = React.createClass({
       <div className='container'>
         <LeftBar />
         <div className="main">
-          <div className="leftPanel"></div>
+          <div className="leftPanel">
+            <div className="memberPanel">
+
+            </div>
+            <HotPanel className="hotpanel" data={hotPosts} />
+          </div>
           <div className="content">
             <h2>Demo page</h2>
             <HeadBar />
@@ -67,7 +73,6 @@ function ShowArtical (articals, sort) {
 }
 
 function select (state) {
-  debugger
   return { articals: ShowArtical(state.FilterArtical, state.SortArtical), sorts: state.SortArtical, tags: tagData }
 }
 

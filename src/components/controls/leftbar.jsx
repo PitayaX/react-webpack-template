@@ -7,7 +7,7 @@ const LeftBar = React.createClass({
     return (<div className="left-bar navbar">
               <ul>
                 <li className="home"><a><i className="fa fa-home"></i></a></li>
-                <li className="app"><a><i className="fa fa-user"></i></a></li>
+                <li className="app"><a><i className="fa fa-th"></i></a></li>
                 <li className="edit"><a><i className="fa fa-edit"></i></a></li>
               </ul>
             </div>)

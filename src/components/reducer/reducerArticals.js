@@ -30,7 +30,6 @@ function FilterArtical ( state = articalsData, action ) {
 }
 
 function SortArtical ( state = SortType.SORT_FOLLOW, action  ) {
-  debugger
   switch (action.type) {
   case Actions.SET_SORT:
     return action.code
