@@ -38,9 +38,7 @@ const ArticlePage=React.createClass({
         </div>
         {/* 第三列*/}
         <div className='col3'>
-          <div className='content'>
-            <Article model={tempModel} />
-          </div>
+          <Article model={tempModel} />
           <hr className='bottomHr'/>
           <Bottom />
         </div>
