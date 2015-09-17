@@ -26,7 +26,8 @@ export default {
     loaders: [
       { test: /\.jsx?$/, loader: jsLoader, exclude: /node_modules/ },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', cssLoader) },
-      { test: /\.less$/, loader: ExtractTextPlugin.extract('style', `${cssLoader}!less-loader`) }
+      { test: /\.less$/, loader: ExtractTextPlugin.extract('style', `${cssLoader}!less-loader`) },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: `url-loader?limit=10000!img-loader?progressive=true` }
     ]
   }
 }

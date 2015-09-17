@@ -31,7 +31,8 @@ export default {
     loaders: [
       { test: /\.jsx?$/, loader: `react-hot-loader!${jsLoader}`, exclude: /node_modules/ },
       { test: /\.css$/, loader: cssLoaderForDev },
-      { test: /\.less$/, loader: `${cssLoaderForDev}!less-loader` }
+      { test: /\.less$/, loader: `${cssLoaderForDev}!less-loader` },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: `url-loader?limit=10000!img-loader?progressive=true` }
     ]
   }
 }
