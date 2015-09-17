@@ -12,9 +12,7 @@ const ArticleBody = React.createClass({
     this.props.className = this.props.className || 'articleBody'
     return (
       <div id={this.props.id} className={this.props.className}>
-        <pre>
           {this.props.text}
-        </pre>
       </div>
     )
   }
